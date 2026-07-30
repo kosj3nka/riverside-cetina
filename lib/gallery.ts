@@ -20,6 +20,8 @@ export const galleryPhotos: GalleryPhoto[] = [
   { src: "/images/gallery/peopleRiding2.webp", width: 1080, height: 1440, alt },
   { src: "/images/gallery/verticalRiding.webp", width: 640, height: 800, alt },
   { src: "/images/gallery/wavingWhileRiding.jpg", width: 640, height: 852, alt },
+  { src: "/images/gallery/horsesInRiver.webp", width: 1440, height: 1920, alt },
+  { src: "/images/gallery/ridingInForest.webp", width: 1440, height: 1440, alt },
 ];
 
 // Candid photos that also live elsewhere on the site (the Horses section),
@@ -90,10 +92,30 @@ export const allGalleryItems: GalleryItem[] = (() => {
     height: 1080,
   };
 
+  const riverVideo: GalleryItem = {
+    kind: "video",
+    src: "/videos/horsesInRiver.mp4",
+    alt: "Horses crossing the Cetina river",
+    width: 720,
+    height: 960,
+  };
+
+  const forestVideo: GalleryItem = {
+    kind: "video",
+    src: "/videos/videoOnHorse.mp4",
+    alt: "Riding through the forest trail on horseback",
+    width: 480,
+    height: 856,
+  };
+
   return [
     photos[0],
     heroVideo,
-    ...photos.slice(1, photos.length - 1),
+    ...photos.slice(1, 6),
+    riverVideo,
+    ...photos.slice(6, 11),
+    forestVideo,
+    ...photos.slice(11, photos.length - 1),
     foalVideo,
     photos[photos.length - 1],
   ];
