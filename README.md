@@ -19,7 +19,7 @@ Open [http://localhost:3000](http://localhost:3000).
 
 - `app/` — root layout, global styles, page
 - `components/` — one component per section (`Hero`, `Intro`, `Experience`,
-  `Horses`, `Trail`, `Gallery`, `Book`, `Footer`, `Nav`)
+  `Horses`, `Gallery`, `GiftCard`, `Book`, `Footer`, `Nav`)
 - `lib/site.ts` — shared content: contacts, location, nav links
 - `public/videos`, `public/images` — served media, organized by section
 - `assets/` — original source media (not committed; see `.gitignore`)

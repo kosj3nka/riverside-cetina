@@ -26,8 +26,8 @@ export function Nav() {
           <Image
             src="/images/logo.png"
             alt={site.name}
-            width={40}
-            height={40}
+            width={76}
+            height={76}
             className="rounded-full"
             priority
           />
@@ -58,7 +58,11 @@ export function Nav() {
           href={site.contacts[0].whatsapp}
           target="_blank"
           rel="noopener noreferrer"
-          className="rounded-full bg-leather px-4 py-2 text-sm font-semibold text-cream transition-colors hover:bg-leather/90"
+          className={`rounded-full px-4 py-2 text-sm font-semibold transition-colors ${
+            scrolled
+              ? "bg-leather text-cream hover:bg-leather/90"
+              : "border border-cream/50 bg-cream/10 text-cream backdrop-blur-sm hover:bg-cream/20"
+          }`}
         >
           Book
         </a>

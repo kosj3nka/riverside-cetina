@@ -11,8 +11,8 @@ export function Footer() {
           <Image
             src="/images/logo.png"
             alt={site.name}
-            width={36}
-            height={36}
+            width={150}
+            height={150}
             className="rounded-full"
           />
           <div>
@@ -20,7 +20,7 @@ export function Footer() {
               {site.name}
             </p>
             <p className="font-body text-sm">
-              {site.location.start} · {site.location.distanceFromSplit}
+              {site.location.start}
             </p>
           </div>
         </div>

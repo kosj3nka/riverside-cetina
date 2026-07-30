@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { site } from "@/lib/site";
 import { Reveal } from "./Reveal";
+import { InstagramIcon } from "./icons";
 
 export function Book() {
   const [name, setName] = useState("");
@@ -27,29 +28,11 @@ export function Book() {
       <div className="mx-auto grid max-w-5xl gap-12 lg:grid-cols-2">
         <Reveal>
           <h2 className="font-heading text-3xl font-semibold text-cetina-green sm:text-4xl">
-            Book your ride
+            Contact
           </h2>
-
-          <dl className="mt-8 space-y-3 font-body text-ink/90">
-            <div className="flex flex-col gap-1 border-b border-ink/10 pb-3 sm:flex-row sm:justify-between sm:gap-4">
-              <dt className="font-medium">Start</dt>
-              <dd>{site.location.start}</dd>
-            </div>
-            <div className="flex flex-col gap-1 border-b border-ink/10 pb-3 sm:flex-row sm:justify-between sm:gap-4">
-              <dt className="font-medium">Distance from Split</dt>
-              <dd>{site.location.distanceFromSplit}</dd>
-            </div>
-            <div className="flex flex-col gap-1 border-b border-ink/10 pb-3 sm:flex-row sm:justify-between sm:gap-4">
-              <dt className="font-medium">Ride</dt>
-              <dd>
-                {site.ride.duration} · {site.ride.price}
-              </dd>
-            </div>
-            <div className="flex flex-col gap-1 border-b border-ink/10 pb-3 sm:flex-row sm:justify-between sm:gap-4">
-              <dt className="font-medium">Level</dt>
-              <dd>{site.ride.level}</dd>
-            </div>
-          </dl>
+          <p className="mt-3 font-body text-lg text-ink/80">
+            Reach out on WhatsApp to book your ride, or say hi on Instagram.
+          </p>
 
           <div className="mt-8 space-y-3">
             {site.contacts.map((contact) => (
@@ -60,10 +43,20 @@ export function Book() {
                 rel="noopener noreferrer"
                 className="flex w-full flex-col gap-1 rounded-2xl bg-cetina-green px-6 py-4 font-body font-semibold text-cream transition-colors hover:bg-cetina-green/90 sm:flex-row sm:items-center sm:justify-between sm:gap-4 sm:rounded-full"
               >
-                <span>Book with {contact.name} on WhatsApp</span>
+                <span>{contact.name} on WhatsApp</span>
                 <span className="text-cream/80">{contact.phone}</span>
               </a>
             ))}
+
+            <a
+              href={site.instagram.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex w-full items-center gap-3 rounded-full border border-ink/15 px-6 py-4 font-body font-semibold text-ink transition-colors hover:bg-cream"
+            >
+              <InstagramIcon className="h-5 w-5 shrink-0 text-leather" />
+              {site.instagram.handle}
+            </a>
           </div>
         </Reveal>
 

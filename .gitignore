@@ -22,6 +22,7 @@
 
 # misc
 .DS_Store
+Thumbs.db
 *.pem
 
 # debug
@@ -42,3 +43,10 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# editor / tooling (local, machine-specific)
+.claude/
+.vscode/
+
+# claude code planning docs (not needed for deployment)
+docs/superpowers/

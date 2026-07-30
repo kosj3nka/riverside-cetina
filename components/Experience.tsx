@@ -1,6 +1,6 @@
 import { site } from "@/lib/site";
 import { Reveal } from "./Reveal";
-import { HorseshoeIcon, MapPinIcon, SunIcon, WaveIcon } from "./icons";
+import { MapPinIcon, SunIcon } from "./icons";
 
 const details = [
   {
@@ -19,29 +19,45 @@ const details = [
 
 export function Experience() {
   return (
-    <section id="experience" className="bg-sand px-6 py-24 sm:py-32">
-      <div className="mx-auto max-w-6xl">
-        <Reveal className="mx-auto max-w-2xl text-center">
-          <h2 className="font-heading text-3xl font-semibold text-cetina-green sm:text-4xl">
-            The experience
-          </h2>
-        </Reveal>
+    <section id="experience" className="flow-root bg-sand">
+      <Reveal className="relative z-10 -mt-44 -mb-2 sm:-mt-[10vw] sm:-mb-10">
+        <h2 className="sr-only">The experience</h2>
 
-        <div className="mt-14 grid grid-cols-1 gap-6 lg:grid-cols-[2fr_1fr]">
+        {/* Mobile: cropped/zoomed toward the left so the full-width graphic isn't shrunk illegibly small */}
+        <div className="relative h-72 w-full sm:hidden">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/images/experience-title.png"
+            alt=""
+            aria-hidden
+            loading="lazy"
+            decoding="async"
+            className="absolute inset-0 h-full w-full object-cover object-[0%_70%]"
+          />
+        </div>
+
+        {/* Desktop: full, uncropped image at its native ratio */}
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/images/experience-title.png"
+          alt=""
+          aria-hidden
+          loading="lazy"
+          decoding="async"
+          className="hidden h-auto w-full sm:block"
+        />
+      </Reveal>
+
+      <div className="mx-auto max-w-6xl px-6 pb-24 sm:pb-32">
+        <div className="grid grid-cols-1 gap-6 lg:grid-cols-[2fr_1fr]">
           <Reveal>
-            <div className="flex h-full flex-col justify-between rounded-3xl bg-cetina-green px-8 py-10 text-cream sm:px-12 sm:py-12">
-              <div className="flex items-center gap-3">
-                <WaveIcon className="h-8 w-8 text-cream/80" />
-                <HorseshoeIcon className="h-8 w-8 text-cream/80" />
-              </div>
-              <div className="mt-8">
-                <p className="font-heading text-5xl font-semibold sm:text-6xl">
-                  {site.ride.duration}
-                </p>
-                <p className="mt-3 font-body text-lg text-cream/85">
-                  along the water · {site.ride.price} per ride
-                </p>
-              </div>
+            <div className="flex h-full flex-col justify-center rounded-3xl bg-cetina-green px-8 py-10 text-cream sm:px-12 sm:py-12">
+              <p className="font-heading text-5xl font-semibold sm:text-6xl">
+                {site.ride.duration}
+              </p>
+              <p className="mt-3 font-body text-lg text-cream/85">
+                along the water · {site.ride.price} per ride
+              </p>
             </div>
           </Reveal>
 

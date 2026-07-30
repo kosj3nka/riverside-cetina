@@ -14,7 +14,7 @@ const inter = Inter({
   display: "swap",
 });
 
-const title = "Riverside Cetina — Horseback Riding Along the Cetina River";
+const title = "Riverside Cetina";
 const description =
   "Beginner-friendly horseback riding along the Cetina river in Sinj, 35 km from Split. 1h30 rides from Glavice, €50. Book on WhatsApp.";
 

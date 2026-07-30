@@ -29,16 +29,16 @@ export function Hero() {
           transition={{ type: "spring", stiffness: 100, damping: 20 }}
           className="font-heading text-4xl font-semibold leading-tight text-balance drop-shadow-sm sm:text-6xl"
         >
-          Ride the Cetina
+          Horseback riding along Cetina River
         </motion.h1>
 
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ type: "spring", stiffness: 100, damping: 20, delay: 0.15 }}
-          className="mt-4 max-w-xl text-lg text-cream/90 sm:text-xl"
+          className="mt-4 mx-4 max-w-xl text-lg text-cream/90 sm:mx-0 sm:text-xl"
         >
-          Beginner-friendly horseback rides from Glavice, Sinj — 35 km from
+          Beginner-friendly horseback tour rides from Sinj - 35 km from
           Split.
         </motion.p>
 

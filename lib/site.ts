@@ -21,8 +21,6 @@ export const site = {
 
 export const navLinks = [
   { href: "#experience", label: "Experience" },
-  { href: "#horses", label: "Horses" },
-  { href: "#trail", label: "The Trail" },
   { href: "#gallery", label: "Gallery" },
-  { href: "#book", label: "Book" },
+  { href: "#book", label: "Contact" },
 ] as const;
