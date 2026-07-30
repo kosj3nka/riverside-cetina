@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useCallback, useEffect, useRef, useState } from "react";
 import type { GalleryItem } from "@/lib/gallery";
-import { CloseIcon } from "./icons";
+import { ChevronLeftIcon, ChevronRightIcon, CloseIcon } from "./icons";
 
 function GridVideo({ item }: { item: Extract<GalleryItem, { kind: "video" }> }) {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -43,7 +43,16 @@ function GridVideo({ item }: { item: Extract<GalleryItem, { kind: "video" }> }) 
 
 export function Lightbox({ items }: { items: GalleryItem[] }) {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
+
   const close = useCallback(() => setOpenIndex(null), []);
+  const showPrev = useCallback(
+    () => setOpenIndex((i) => (i === null ? null : (i - 1 + items.length) % items.length)),
+    [items.length]
+  );
+  const showNext = useCallback(
+    () => setOpenIndex((i) => (i === null ? null : (i + 1) % items.length)),
+    [items.length]
+  );
 
   useEffect(() => {
     if (openIndex === null) return;
@@ -52,6 +61,8 @@ export function Lightbox({ items }: { items: GalleryItem[] }) {
 
     const onKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") close();
+      if (e.key === "ArrowLeft") showPrev();
+      if (e.key === "ArrowRight") showNext();
     };
     window.addEventListener("keydown", onKeyDown);
 
@@ -59,7 +70,7 @@ export function Lightbox({ items }: { items: GalleryItem[] }) {
       document.body.style.overflow = "";
       window.removeEventListener("keydown", onKeyDown);
     };
-  }, [openIndex, close]);
+  }, [openIndex, close, showPrev, showNext]);
 
   const current = openIndex === null ? null : items[openIndex];
 
@@ -104,6 +115,30 @@ export function Lightbox({ items }: { items: GalleryItem[] }) {
             className="absolute right-6 top-6 text-cream transition-colors hover:text-cream/70"
           >
             <CloseIcon className="h-8 w-8" />
+          </button>
+
+          <button
+            type="button"
+            onClick={(e) => {
+              e.stopPropagation();
+              showPrev();
+            }}
+            aria-label="Previous"
+            className="absolute left-4 text-cream transition-colors hover:text-cream/70 sm:left-8"
+          >
+            <ChevronLeftIcon className="h-10 w-10" />
+          </button>
+
+          <button
+            type="button"
+            onClick={(e) => {
+              e.stopPropagation();
+              showNext();
+            }}
+            aria-label="Next"
+            className="absolute right-4 text-cream transition-colors hover:text-cream/70 sm:right-8"
+          >
+            <ChevronRightIcon className="h-10 w-10" />
           </button>
 
           <div onClick={(e) => e.stopPropagation()}>
