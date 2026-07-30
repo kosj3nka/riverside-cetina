@@ -75,3 +75,21 @@ export function MapPinIcon(props: React.SVGProps<SVGSVGElement>) {
     </svg>
   );
 }
+
+export function InstagramIcon(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 48 48" fill="none" {...props}>
+      <rect
+        x="6"
+        y="6"
+        width="36"
+        height="36"
+        rx="10"
+        stroke="currentColor"
+        strokeWidth="2.5"
+      />
+      <circle cx="24" cy="24" r="9" stroke="currentColor" strokeWidth="2.5" />
+      <circle cx="34" cy="14" r="1.8" fill="currentColor" />
+    </svg>
+  );
+}
