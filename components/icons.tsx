@@ -93,3 +93,40 @@ export function InstagramIcon(props: React.SVGProps<SVGSVGElement>) {
     </svg>
   );
 }
+
+export function ChevronLeftIcon(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 48 48" fill="none" {...props}>
+      <path
+        d="M30 12 18 24l12 12"
+        stroke="currentColor"
+        strokeWidth="2.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+export function ChevronRightIcon(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 48 48" fill="none" {...props}>
+      <path
+        d="M18 12l12 12-12 12"
+        stroke="currentColor"
+        strokeWidth="2.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+export function CloseIcon(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 48 48" fill="none" {...props}>
+      <path d="M14 14 34 34" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+      <path d="M34 14 14 34" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+    </svg>
+  );
+}
