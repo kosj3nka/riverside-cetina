@@ -7,7 +7,7 @@ export function Hero() {
   return (
     <section
       id="top"
-      className="relative flex h-screen min-h-[640px] w-full items-center justify-center overflow-hidden"
+      className="relative flex min-h-[100dvh] w-full items-center justify-center overflow-hidden"
     >
       <video
         autoPlay
@@ -26,7 +26,7 @@ export function Hero() {
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
+          transition={{ type: "spring", stiffness: 100, damping: 20 }}
           className="font-heading text-4xl font-semibold leading-tight text-balance drop-shadow-sm sm:text-6xl"
         >
           Ride the Cetina
@@ -35,7 +35,7 @@ export function Hero() {
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.15, ease: "easeOut" }}
+          transition={{ type: "spring", stiffness: 100, damping: 20, delay: 0.15 }}
           className="mt-4 max-w-xl text-lg text-cream/90 sm:text-xl"
         >
           Beginner-friendly horseback rides from Glavice, Sinj — 35 km from
@@ -45,11 +45,12 @@ export function Hero() {
         <motion.a
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
+          transition={{ type: "spring", stiffness: 100, damping: 20, delay: 0.3 }}
+          whileTap={{ scale: 0.98 }}
           href={site.contacts[0].whatsapp}
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-8 rounded-full bg-leather px-8 py-4 font-body text-base font-semibold text-cream shadow-lg transition-transform hover:scale-105 hover:bg-leather/90"
+          className="mt-8 rounded-full bg-leather px-8 py-4 font-body text-base font-semibold text-cream shadow-lg transition-colors hover:bg-leather/90"
         >
           Book on WhatsApp
         </motion.a>
