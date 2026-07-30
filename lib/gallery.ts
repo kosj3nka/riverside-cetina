@@ -58,7 +58,14 @@ export const galleryCarouselRows: [GalleryPhoto[], GalleryPhoto[]] = [
 
 export type GalleryItem =
   | ({ kind: "photo" } & GalleryPhoto)
-  | { kind: "video"; src: string; alt: string; width: number; height: number };
+  | {
+      kind: "video";
+      src: string;
+      alt: string;
+      width: number;
+      height: number;
+      poster?: string;
+    };
 
 export const allGalleryItems: GalleryItem[] = (() => {
   const photos: GalleryItem[] = allGalleryPhotos.map((photo) => ({
@@ -72,6 +79,7 @@ export const allGalleryItems: GalleryItem[] = (() => {
     alt: "Horseback riding along the Cetina river",
     width: 1920,
     height: 1080,
+    poster: "/images/hero-poster.jpg",
   };
 
   const foalVideo: GalleryItem = {

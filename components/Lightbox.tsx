@@ -33,6 +33,8 @@ function GridVideo({ item }: { item: Extract<GalleryItem, { kind: "video" }> }) 
       muted
       loop
       playsInline
+      preload="none"
+      poster={item.poster}
       style={{ aspectRatio: `${item.width} / ${item.height}` }}
       className="h-auto w-full object-cover"
     >
@@ -61,6 +63,9 @@ export function Lightbox({ items }: { items: GalleryItem[] }) {
 
     const onKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") close();
+
+      if ((e.target as HTMLElement).closest("video")) return;
+
       if (e.key === "ArrowLeft") showPrev();
       if (e.key === "ArrowRight") showNext();
     };
@@ -82,7 +87,8 @@ export function Lightbox({ items }: { items: GalleryItem[] }) {
             key={item.src}
             type="button"
             onClick={() => setOpenIndex(i)}
-            className="mb-4 block w-full appearance-none break-inside-avoid overflow-hidden rounded-xl border-0 bg-transparent p-0 text-left"
+            aria-label={item.kind === "video" ? item.alt : undefined}
+            className="mb-4 block w-full cursor-pointer appearance-none break-inside-avoid overflow-hidden rounded-xl border-0 bg-transparent p-0 text-left transition-opacity hover:opacity-80"
           >
             {item.kind === "photo" ? (
               <Image
@@ -102,7 +108,7 @@ export function Lightbox({ items }: { items: GalleryItem[] }) {
 
       {current && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-ink/95 p-6 transition-opacity duration-200"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-ink/95 p-6"
           onClick={close}
         >
           <button
@@ -112,7 +118,7 @@ export function Lightbox({ items }: { items: GalleryItem[] }) {
               close();
             }}
             aria-label="Close"
-            className="absolute right-6 top-6 text-cream transition-colors hover:text-cream/70"
+            className="absolute right-6 top-6 cursor-pointer text-cream transition-colors hover:text-cream/70"
           >
             <CloseIcon className="h-8 w-8" />
           </button>
@@ -124,7 +130,7 @@ export function Lightbox({ items }: { items: GalleryItem[] }) {
               showPrev();
             }}
             aria-label="Previous"
-            className="absolute left-4 text-cream transition-colors hover:text-cream/70 sm:left-8"
+            className="absolute left-4 cursor-pointer text-cream transition-colors hover:text-cream/70 sm:left-8"
           >
             <ChevronLeftIcon className="h-10 w-10" />
           </button>
@@ -136,7 +142,7 @@ export function Lightbox({ items }: { items: GalleryItem[] }) {
               showNext();
             }}
             aria-label="Next"
-            className="absolute right-4 text-cream transition-colors hover:text-cream/70 sm:right-8"
+            className="absolute right-4 cursor-pointer text-cream transition-colors hover:text-cream/70 sm:right-8"
           >
             <ChevronRightIcon className="h-10 w-10" />
           </button>
@@ -159,6 +165,7 @@ export function Lightbox({ items }: { items: GalleryItem[] }) {
                 autoPlay
                 loop
                 playsInline
+                aria-label={current.alt}
                 style={{ aspectRatio: `${current.width} / ${current.height}` }}
                 className="max-h-[85vh] max-w-[90vw] object-contain"
               >
