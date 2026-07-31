@@ -26,8 +26,8 @@ export function Nav() {
           <Image
             src="/images/logo.png"
             alt={site.name}
-            width={76}
-            height={76}
+            width={66}
+            height={66}
             className="rounded-full"
             priority
           />
@@ -55,9 +55,7 @@ export function Nav() {
         </ul>
 
         <a
-          href={site.contacts[0].whatsapp}
-          target="_blank"
-          rel="noopener noreferrer"
+          href="#book"
           className={`rounded-full px-4 py-2 text-sm font-semibold transition-colors ${
             scrolled
               ? "bg-leather text-cream hover:bg-leather/90"

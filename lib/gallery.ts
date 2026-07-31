@@ -8,7 +8,7 @@ export type GalleryPhoto = {
 const alt = "Horseback riding along the Cetina river";
 
 export const galleryPhotos: GalleryPhoto[] = [
-  { src: "/images/gallery/aestheticSunHorse.webp", width: 1440, height: 1920, alt },
+  
   { src: "/images/gallery/backViewRiding.webp", width: 640, height: 800, alt },
   { src: "/images/gallery/cowboyFeel.webp", width: 1440, height: 960, alt },
   { src: "/images/gallery/frontViewRiding.jpg", width: 640, height: 591, alt },
@@ -22,6 +22,7 @@ export const galleryPhotos: GalleryPhoto[] = [
   { src: "/images/gallery/wavingWhileRiding.jpg", width: 640, height: 852, alt },
   { src: "/images/gallery/horsesInRiver.webp", width: 1440, height: 1920, alt },
   { src: "/images/gallery/ridingInForest.webp", width: 1440, height: 1440, alt },
+  { src: "/images/gallery/aestheticSunHorse.webp", width: 1440, height: 1920, alt }
 ];
 
 // Candid photos that also live elsewhere on the site (the Horses section),
@@ -88,8 +89,8 @@ export const allGalleryItems: GalleryItem[] = (() => {
     kind: "video",
     src: "/videos/foal.mp4",
     alt: "The herd's newest, curious foal",
-    width: 1920,
-    height: 1080,
+    width: 1020,
+    height: 1880,
   };
 
   const riverVideo: GalleryItem = {

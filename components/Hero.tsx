@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { site } from "@/lib/site";
 
 export function Hero() {
   return (
@@ -47,12 +46,10 @@ export function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ type: "spring", stiffness: 100, damping: 20, delay: 0.3 }}
           whileTap={{ scale: 0.98 }}
-          href={site.contacts[0].whatsapp}
-          target="_blank"
-          rel="noopener noreferrer"
+          href="#book"
           className="mt-8 rounded-full bg-leather px-8 py-4 font-body text-base font-semibold text-cream shadow-lg transition-colors hover:bg-leather/90"
         >
-          Book on WhatsApp
+          Book Now
         </motion.a>
       </div>
 
